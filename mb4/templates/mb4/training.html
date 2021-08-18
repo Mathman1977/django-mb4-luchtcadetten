@@ -1,0 +1,75 @@
+{% extends "mb4/base.html" %}
+
+{% block header %}
+ <div class="text-center">
+    <img src="/media/costume%20hoedje%20af.png" class="rond " alt="Mathman Hoedje Af" width="15%" height="3%">
+ </div>
+{% endblock header %}
+
+
+{% block content %}
+<br>
+<br>
+<br>
+{% if request.user.is_authenticated %}
+
+    {%  if opgave.id <= aantal  %}
+
+    <form action="{% url 'training'  %}" method="post">
+    {% csrf_token %}
+    <fieldset>
+        <legend><h1>{{ reeks.titel }}</h1></legend>
+        <br>
+        <h2>
+            <!-- Vraag {{opgave.id}}:<br> -->
+
+
+        </h2>
+        {% if foutmelding %}
+            <div class="alert alert-{{ color }} alert-dismissible fade show" role="alert">
+                {{  foutmelding }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" ></button>
+            </div>
+        {% endif %}
+
+        <p class="links-inspringen">
+            <img src=" /media/{{ opgave.opg_foto }}" alt="Foto Opgave" width="60%" height="12%"><br/>
+        </p>
+        <br>
+        <h2 class="links-inspringen">
+            <select id="jouw_antwoord" name="jouw_antwoord">
+                <option value="">-</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+
+            <input type="hidden"  name ="vorige_id" value="{{  opgave.id }}">
+            <input type="hidden"  name ="start" value="{{  start }}">
+            <br>
+            <br>
+            <input class="btn-primary " type="submit" value="VOLGENDE!">
+        </h2>
+
+
+
+    </fieldset>
+
+
+     {% else %}
+            <h2 style="font-size: 45px;color: red">
+            <a  class="btn-primary "href="{% url 'resultaten' %}">NAAR JE RESULTATEN!</a>
+            </h2>
+    {% endif %}
+
+    </form>
+
+
+
+
+{% else %}
+        Je bent nog niet ingelogd!
+{% endif %}
+
+{% endblock content %}

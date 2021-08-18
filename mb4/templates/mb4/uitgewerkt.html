@@ -1,0 +1,27 @@
+{% extends "mb4/base.html" %}
+
+
+
+{% block content %}
+
+<br>
+<br>
+<br>
+{% if request.user.is_authenticated %}
+
+    <img src=" /media/{{ opgave.opl_foto }}" alt="Foto Opgave" width="100%" height="20%"><br/>
+
+    <br>
+
+    <h2>
+        Om terug te keren naar vorige pagina, <br>
+       doe via back in de browser! <br>
+
+        <!-- <a  class="btn-primary "href="{% url 'training' %} disabled">TERUG NAAR JE RESULTATEN!</a> -->
+    </h2>
+
+{% else %}
+        Je bent nog niet ingelogd!
+{% endif %}
+
+{% endblock content %}

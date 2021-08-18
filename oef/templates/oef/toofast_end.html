@@ -1,0 +1,38 @@
+
+{% extends "oef/base.html" %}
+{% block header %}
+
+{% endblock header %}
+
+
+{% block content %}
+     <br>
+<!-- {% if my_answer %}
+     <div class="alert alert-{{ color }} alert-dismissible fade show" role="alert">
+        {{  my_answer }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" ></button>
+    </div>
+{% endif %}
+-->
+
+     <br> <br>
+    <h1 style="font-size: 45px;">
+
+
+    tis gedaan
+    <br>
+    aantal foute antwoorden :
+    Hier je lijst met foute antwoorden
+
+    {% for oef in oef_lijst %}
+        {{ oef.vr }} is gelijk aan {{ oef.corrant }} en niet aan {{ ant }}
+    {% endfor %}
+
+    </h1>
+   <br>
+
+
+
+{% endblock content %}
+
+

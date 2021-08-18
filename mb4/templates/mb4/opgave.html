@@ -1,0 +1,76 @@
+{% extends "mb4/base.html" %}
+
+{% block header %}
+ <div class="text-center">
+    <img src="/media/costume%20hoedje%20af.png" class="rond " alt="Mathman Hoedje Af" width="15%" height="3%">
+ </div>
+{% endblock header %}
+
+
+{% block content %}
+<br>
+<br>
+<br>
+{% if request.user.is_authenticated %}
+
+
+reeks {{reeks.titel}}
+
+{%  if vraag_nr < 4 %}
+
+<form action="{% url 'opgave'  %}" method="post">
+
+{% csrf_token %}
+<fieldset>
+    <legend><h1>{{ reeks.titel }}</h1></legend>
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+    {% if foutmelding %}
+     <div class="alert alert-{{ color }} alert-dismissible fade show" role="alert">
+        {{  foutmelding }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" ></button>
+    </div>
+    {% endif %}
+
+
+        <li>
+            <img class ="opgave" src="/media/vragen/vraag%20{{ vraag_nr }}.png" alt="Vraag" width="60%" height="12%">
+            <br>
+            <br>
+            <input type="textinput" name="jouw_antwoord" id="jouw_antwoord" value="">
+            <input type="hidden"  name ="vraag_nr" value="{{  vraag_nr }}">
+            <input type="hidden"  name ="start" value="{{  start }}">
+            <br>
+        </li>
+</fieldset>
+<br>
+<br>
+
+<input class="btn-primary " type="submit" value="VOLGENDE!">
+
+ {% else %}
+        <h2 style="font-size: 45px;color: red">
+        <a  class="btn-primary "href="{% url 'resultaten' %}">RESULTATEN!</a>
+
+
+        </h2>
+{% endif %}
+
+</form>
+
+
+
+
+{% else %}
+        Je bent nog niet ingelogd!
+{% endif %}
+
+<br>
+<br><br>
+<br>
+<br><br>
+<br>
+<br><br>
+<br>
+<br>
+{% endblock content %}

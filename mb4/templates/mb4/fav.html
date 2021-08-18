@@ -1,0 +1,39 @@
+{% extends "mb4/base.html" %}
+
+{% block content %}
+<br>
+<br>
+<br>
+{% if request.user.is_authenticated %}
+<h1 style="font-size: 45px;">
+       Hallo {{ request.user }}!
+</h1>
+    <br>
+    Wat is je favoriete nummer?<br>
+    <h2 style="font-size: 45px;color: red">
+        <form action="{% url 'fav_aft' %}" method="post">
+             {% csrf_token %}
+            <label for="num">Jouw Keuze: </label>
+            <input id="num" type="integer" name ="num" >
+            <input type="hidden"  name ="index" value="{{  num|add:1 }}">
+            <input class="btn btn-secondary" type="submit" value="Enter">
+
+        </form>
+    </h2>
+
+
+{% else %}
+        Je bent niet ingelogd, maar toch: HAPPY NEW YEAR!!!
+{% endif %}
+
+<br>
+<br><br>
+<br>
+<br><br>
+<br>
+<br><br>
+<br>
+<br>
+{% endblock content %}
+
+<!-- {% url '2F2Fn' %} -->

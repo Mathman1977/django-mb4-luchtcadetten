@@ -1,0 +1,41 @@
+{% extends "oef/base.html" %}
+{% block header %}
+<!--  <div class="text-center">
+    <img src="/media/costume%20hoedje%20af.png" class="rond " alt="Mathman Hoedje Af" width="30%" height="6%" >
+ </div>
+ -->
+ {% endblock header %}
+
+{% block content %}
+     <br>
+<!-- {% if my_answer %}
+     <div class="alert alert-{{ color }} alert-dismissible fade show" role="alert">
+        {{  my_answer }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" ></button>
+    </div>
+{% endif %}
+-->
+
+     <br>
+     <br>
+    <h1 style="font-size: 45px;">
+
+    UITLEG OVER DE GAME
+    <br>
+    </h1>
+     <br>
+
+    <form action="{% url '2F2F_77' %}" method="post">
+     {% csrf_token %}
+    <input class="btn btn-secondary" type="submit" value="Ready?">
+    <input type="hidden"  name ="new_ind" value=0>
+    <input type="hidden"  name ="old_ques" value="0">
+
+    <input type="hidden"  name ="your_ans" value="0">
+
+     </form>
+
+
+
+{% endblock content %}
+

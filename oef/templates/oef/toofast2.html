@@ -1,0 +1,40 @@
+{% extends "oef/base.html" %}
+
+{% block content %}
+     <br>
+{% if my_answer %}
+     <div class="alert alert-{{ color }} alert-dismissible fade show" role="alert">
+        {{  my_answer }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" ></button>
+    </div>
+{% endif %}
+     <br> <br>
+    <h1 style="font-size: 145px;">
+        <!-- <img src= "/static/cards/C_{{ num_1 }}.png" alt= "kaart 0"> -->
+        {{ num_1 }}
+        + {{ num_2 }} =
+        <!-- <img src= "/static/cards/C_{{ num_2 }}.png" alt= "kaart 0"> = -->
+    </h1>
+   <br>
+    <form action="{% url '2F2F' %}" method = "POST">
+        {% csrf_token %}
+        <br>
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Typ hier" name ="answer" autofocus>
+         <input type="hidden"  name ="old_num_1" value="{{  num_1  }}">
+         <input type="hidden"  name ="old_num_2" value="{{  num_2  }}">
+         <input type="hidden"  name ="ind" value="{{  ind   }}">
+
+    </div>
+    <br>
+    <div class="col-12">
+        <button class="btn btn-secondary" type="submit">Je hoeft hier eigenlijk niet op te duwen</button>
+
+    </div>
+
+     </form>
+
+
+
+{% endblock content %}
+

@@ -1,0 +1,38 @@
+{% extends "oef/base.html" %}
+<!-- {% block header %}
+ <div class="text-center">
+    <img src="/media/costume%20hoedje%20af.png" class="rond " alt="Mathman Hoedje Af" width="30%" height="6%">
+ </div>
+{% endblock header %}
+ -->
+
+{% block content %}
+     <br>
+<!-- {% if my_answer %}
+     <div class="alert alert-{{ color }} alert-dismissible fade show" role="alert">
+        {{  my_answer }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" ></button>
+    </div>
+{% endif %}
+-->
+
+    <br>
+    <br>
+    <h1 style="font-size: 45px;">
+    hier gaat het beginnen
+    {{ ques }} =
+    </h1>
+    <br>
+
+    <form action="{% url '2F2F_77' %}" method="post">
+        {% csrf_token %}
+        <input class="btn btn-secondary" type="" value="Ready">
+
+        <input class="btn btn-secondary" type="submit" value="Ready">
+    <!-- <input type="hidden"  name ="num" value="{{  num|add:-1 }}"> -->
+     </form>
+
+
+
+{% endblock content %}
+

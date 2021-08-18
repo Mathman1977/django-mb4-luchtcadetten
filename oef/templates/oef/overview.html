@@ -1,0 +1,62 @@
+{% extends "oef/base.html" %}
+
+<!-- {% load crispy_forms_tags  %} -->
+
+{% block header %}
+<nav class="navbar navbar-expand-lg navbar-dark >
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'oef-home' %}">Math </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'add' %}">Optellen</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="mailto:M8thman@gmail.com">Contacteer</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'logout' %}">Uitloggen</a>
+        </li>
+
+    </ul>
+
+    </div>
+  </div>
+</nav>
+
+{% endblock header %}
+{% block content %}
+	<div class="text-center">
+		<img src="/media/costume%20hoedje%20af.png" class="rond " alt="Mathman Hoedje Af" width="30%" height="6%" >
+ 	</div>
+<div>
+
+	<a href="{% url '2F2F' %}">
+		<img  border="0" alt="2fast 2furious" src="/media/images/2F2F.png" width="30%" height="6%">
+</div>
+
+<br>
+<br>
+<br>
+ 	<div class="col-12 col-sm-6 col-lg-3">
+		<div class="single-cta text-center mt-50 mb-100">
+			<i class="icon_heart_alt"></i>
+			<h2><span class="counter">700</span>+</h2>
+			<h5>Subscribers</h5>
+		</div>
+	</div>
+{% endblock content %}
+
+
+
+
+
+
+
+
+   

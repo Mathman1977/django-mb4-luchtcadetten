@@ -1,0 +1,69 @@
+{% extends "mb4/base.html" %}
+
+
+{% block header %}
+ <div class="text-center">
+    <img src="/media/costume%20hoedje%20af.png" class="rond " alt="Mathman Hoedje Af" width="30%" height="6%">
+ </div>
+{% endblock header %}
+
+
+
+{% block content %}
+<br>
+<br>
+<br>
+{% if request.user.is_authenticated %}
+
+
+    <legend><h1>{{ reeks.titel }}</h1></legend>
+
+    <h1>Goed gedaan, {{ request.user|title }}! <br>
+
+    <h2>
+        <p> {{aantal_juist}} / {{aantal}}<br>
+
+        <p>Dit waren je foute antwoorden:
+            {% for fout in fouten %}
+                        {{fout}},
+            {% endfor %}
+            </p>
+         <p>Dit waren je slowmo antwoorden:
+            {% for slow in slowmo %}
+                        {{slowmo}}
+            {% endfor %}
+            </p>
+
+
+
+            <p>Check hier de uitwerking van de oplossingen, <br>
+                zeker van je fouten: <br>
+            {% with ''|center:aantal as range %}
+                {% for _ in range %}
+                    <a  href="{% url 'uitgewerkt' forloop.counter %}">{{ forloop.counter }}</a>,
+
+                    <!-- <img src=" /media/{{ opgave.opl_foto }}" alt="Foto Opgave" width="60%" height="12%"><br/> -->
+                {% endfor %}
+            {% endwith %}
+            </p>
+       <br>
+
+<a  class="btn-primary "href="{% url 'index' %}">TERUG NAAR OVERZICHT</a>
+
+</h2>
+
+
+
+{% else %}
+        Je bent nog niet ingelogd!
+{% endif %}
+
+<br>
+<br><br>
+<br>
+<br><br>
+<br>
+<br><br>
+<br>
+<br>
+{% endblock content %}

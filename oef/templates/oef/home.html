@@ -1,0 +1,20 @@
+{% extends "oef/base.html" %}
+
+
+{% block header %}
+ <div class="text-center">
+	<img src="/media/costume%20hoedje%20af.png" class="rond " alt="Mathman Hoedje Af" >
+ </div>
+{% endblock header %}
+
+{% block content %}
+
+<div class="text-center">
+	<div class="text-center btn-group">
+		<a class="btn btn-primary-1 b-block" href="{% url 'login' %}" >Kom er in!</a>
+		<a class="btn btn-primary-2 b-block" href="{% url 'register' %}" >Registreer je!</a>
+	</div>
+</div>
+
+
+{% endblock content %}

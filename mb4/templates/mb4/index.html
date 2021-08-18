@@ -1,0 +1,67 @@
+
+{% extends "mb4/base.html" %}
+
+
+{% block header %}
+ <div class="text-center">
+    <img src="/media/costume%20hoedje%20af.png" class="rond " alt="Mathman Hoedje Af" width="30%" height="6%">
+ </div>
+{% endblock header %}
+
+
+
+
+{% block content %}
+<br>
+<br>
+<br>
+{% if request.user.is_authenticated %}
+<h1>Hallo {{ request.user|title }}, </h1>
+<br>
+<h2>
+    Je bent op de Mathman Academy nu!
+    <br><br>
+    Openstaande oefeningen:
+</h2>
+
+<br>
+
+{% if laatste_oef_lijst %}
+    <h2 >
+
+        {% for reeks in laatste_oef_lijst %}
+        <ul>
+            <li>
+                <a  href="{% url 'detail' reeks.id %}">{{ reeks.titel }}</a>
+                <br>
+                <br>
+                {% if reeks.foto %}
+               <!--  <p class="links-inspringen">
+                    <img src=" /media/{{ reeks.foto }}" alt="Foto Reeks" width="50%" height="10%"><br/>
+                </p>
+                Geschatte tijd om te maken: {{ reeks.glob_strtijd }} minuten.<br/>
+                Vereiste level: {{ reeks.vereiste_level }}<br/> -->
+                <!-- /media/reeks{{ reeks.id  }}.jpg -->
+                {% endif %}
+            </li>
+         </ul>
+        {% endfor %}
+
+    </h2>
+{% else %}
+    <p>Momenteel zijn er geen oefeningen voor jou.</p>
+{% endif %}
+
+{% else %}
+        Je bent nog niet ingelogd!
+
+    <div >
+
+    <small class="text-muted">
+                    <a href="{% url 'login' %}">Log Opnieuw In </a>
+    </small>
+</div>
+{% endif %}
+
+
+{% endblock content %}

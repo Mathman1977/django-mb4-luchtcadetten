@@ -1,0 +1,53 @@
+{% extends "mb4/base.html" %}
+
+
+
+{% block content %}
+<br>
+<br>
+<br>
+{% if request.user.is_authenticated %}
+
+
+
+
+
+<form action="{% url 'vulin' reeks.id %}" method="post">
+
+{% csrf_token %}
+<fieldset>
+    <legend><h1>{{ reeks.titel }}</h1></legend>
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+        <li>
+            <img class ="opgave" src="/media/vragen/vraag%20{{ index  }}.png" alt="Vraag" width="60%" height="12%">
+            <br>
+            <br>
+            <input type="textinput" name="opgave" id="opgave{{ index }}" value="">
+            <!-- <label type="textinput" for="opgave{{ forloop.counter }}">{{ opgave.onderwerp }}</label><br> -->
+            <br>
+        </li>
+<!--         <input type="radio" name="opgave" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+        <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
+ -->
+</fieldset>
+<br>
+<br>
+
+<input class="btn-primary " type="submit" value="Stem">
+</form>
+
+
+{% else %}
+        Je bent nog niet ingelogd!
+{% endif %}
+
+<br>
+<br><br>
+<br>
+<br><br>
+<br>
+<br><br>
+<br>
+<br>
+{% endblock content %}
